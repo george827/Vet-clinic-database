@@ -48,8 +48,12 @@ COMMIT;
 SELECT COUNT(*) FROM animals;
 SELECT COUNT(*) FROM animals WHERE escape_attempts = 0;
 SELECT AVG(weight_kg) FROM animals;
-SELECT name FROM animals 
-  WHERE escape_attempts = (SELECT MAX(escape_attempts) FROM animals);
+
+SELECT neutered,name
+ FROM animals
+ WHERE escape_attempts = (SELECT MAX(escape_attempts) FROM animals)
+  GROUP BY neutered,name;
+
 SELECT species, MIN(weight_kg), MAX(weight_kg) 
   FROM animals GROUP BY species;
 SELECT species, ROUND(AVG(escape_attempts)) FROM animals 
