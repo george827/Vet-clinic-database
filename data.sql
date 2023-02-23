@@ -14,4 +14,40 @@ INSERT INTO animals (id, name, date_of_birth, escape_attempts, neutered, weight_
 INSERT INTO animals (id, name, date_of_birth, escape_attempts, neutered, weight_kg) VALUES (10, 'Blossom', '1998-10-13', 3, true, 17);
 INSERT INTO animals (id, name, date_of_birth, escape_attempts, neutered, weight_kg) VALUES (11, 'Ditto', '2022-05-14', 4, true, 22);
 
+-- data into owner
+INSERT INTO owner (full_name, age)
+  VALUES ('Sam Smith', 34),
+  ('Jennifer Orwell', 19),
+  ('Bob',45), ('Melody Pond', 77), 
+  ('Dean Winchester', 14), 
+  ('Joddie Whittaker', 38);
 
+  SELECT * FROM owner;
+--  Insert the following data into the species table:(Pokemon Digimon)
+  INSERT INTO species (name)
+  VALUES ('Pokemon'),
+  ('Digimon');
+
+  SELECT * FROM species;
+
+--  If the name ends in "mon" it will be Digimon All other animals are Pokemon 
+ SELECT * FROM animals;
+  UPDATE animals
+SET species_id = CASE 
+					 WHEN name ILIKE '%mon' THEN  2
+					 ELSE 1
+				 END
+;
+SELECT * FROM animals;
+
+/* the inserted animals to include owner information (owner_id): */
+UPDATE animals
+SET owner_id = CASE 
+					 WHEN name = 'Agumon' THEN 1
+					 WHEN name IN ('Gabumon','Pikachu') THEN 2
+					 WHEN name IN ('Devimon','Plantmon') THEN 3
+					 WHEN name IN ('Charmander','Squirtle','Blossom') THEN 4
+					 WHEN name IN ('Angemon','Boarmon') THEN 5
+				 END;
+
+SELECT * FROM animals;
