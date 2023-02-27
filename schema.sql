@@ -1,4 +1,5 @@
 /* Database schema to keep the structure of entire database. */
+-- vet_clinic database
 
 CREATE TABLE animals (
     id INT PRIMARY KEY NOT NULL,
@@ -35,3 +36,28 @@ ADD species_id INT REFERENCES species(id);
 
 ALTER TABLE animals
 ADD owner_id INT references owner(id);
+
+-- vets, visits joining table
+
+-- create vets table 
+CREATE TABLE vets (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    age INT,
+    date_of_graduation DATE
+);
+
+
+-- create specializations join table (vets table and species table)
+CREATE TABLE specializations (
+    species_id INT REFERENCES species(id),
+    vet_id INT REFERENCES vets(id)
+);
+
+-- create visits  join table (animals table and vets table)
+CREATE TABLE visits (
+    animal_id INT REFERENCES animals(id),
+    vet_id INT REFERENCES vets(id),
+    visited_date DATE NOT NULL
+);
+
