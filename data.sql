@@ -95,3 +95,5 @@ INSERT INTO visits (animal_id, vet_id, visited_date)
   (10, 1, '2021-01-11');
 
 SELECT * FROM visits;
+
+-- performance audit 
