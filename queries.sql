@@ -206,4 +206,9 @@ SELECT ve.name, spe.name, count(spe.name)
   ORDER BY count DESC 
   lIMIT 1;
 
+-- week 2
 
+-- performance audit
+EXPLAIN ANALYZE SELECT COUNT(*) FROM visits where animal_id = 4;
+EXPLAIN ANALYZE SELECT * FROM visits where vet_id = 2;
+EXPLAIN ANALYZE SELECT * FROM owner where email = 'owner_18327@mail.com';

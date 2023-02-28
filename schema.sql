@@ -18,7 +18,7 @@ ADD species VARCHAR(255);
 CREATE TABLE owner (
     id SERIAL PRIMARY KEY,
     full_name VARCHAR(100) NOT NULL,
-    age INT NOT NULL
+    age INT
 );
 
 CREATE TABLE species (
@@ -61,3 +61,12 @@ CREATE TABLE visits (
     visited_date DATE NOT NULL
 );
 
+
+-- WEEK 2 PERFORMANCE AUDIT
+
+ALTER TABLE owner ADD COLUMN email VARCHAR(120);
+
+--  improve performance 
+CREATE INDEX animal_id_index ON visits (animal_id);
+CREATE INDEX vet_id_index ON visits (vet_id);
+CREATE INDEX owners_email_index ON owner (email);
