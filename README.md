@@ -33,6 +33,13 @@
     <li><a href="https://reactjs.org/">PostgreSQL</a></li>
   </ul>
 
+### Database Diagram 
+<div >
+  
+  <img src="drawSQL-vet-clinic-export-2023-03-01.png" alt="vet_clinic"  />
+  <br/>
+</div>
+
 
 ### Key Features <a name="key-features"></a>
 
