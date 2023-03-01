@@ -34,15 +34,3 @@ CREATE TABLE invoice_items (
   treatment_id INT REFERENCES treatments(id)
 );
 
--- JOINING TABLE FOR medical_histories and treatments
-CREATE TABLE medical_histories_treaments (
-  medical_history_id INT REFERENCES medical_histories(id),
-  treatment_id INT REFERENCES treatments(id)
-);
---FK indexes
-CREATE INDEX patient_id_index ON medical_histories(patient_id ASC);
-CREATE INDEX medical_history_id_index ON invoices(medical_history_id ASC);
-CREATE INDEX invoice_id_index ON invoice_items(invoice_id ASC);
-CREATE INDEX treatment_id_index ON invoice_items(treatment_id ASC);
-CREATE INDEX medical_histories_id_index ON medical_histories_treaments(medical_history_id ASC);
-CREATE INDEX treaments_id_index ON medical_histories_treaments(treatment_id ASC);
